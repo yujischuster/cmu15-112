@@ -1,21 +1,20 @@
 # 1)
 def most_frequent_digit(n):
-    highest_streak = 0
-    highest_digit = 0
-    streak = 0
-    while n > 0:
-        last_digit = n % 10
-        n //= 10
-        if last_digit == n % 10:
-            streak += 1
-            if streak == highest_streak and last_digit < highest_digit:
-                highest_digit = last_digit
-            elif streak > highest_streak:
-                highest_streak = streak
-                highest_digit = last_digit
-        else:
-            streak = 0
-    return highest_digit
+    best_count = 0
+    best_digit = 0
+    for i in range(10):
+        m = n 
+        count = 0
+        while m > 0:
+            digit = m % 10
+            m //= 10
+            if i == digit:
+                count += 1
+        if count > best_count:
+            best_count = count
+            best_digit = i
+    return best_digit
+        
 
 def test_most_frequent_digit():
     assert(most_frequent_digit(1123) == 1)
@@ -122,7 +121,7 @@ def is_palindrome(n):
             return False
         n //= 10
         print(n)
-       # m = (n % (10 ** (count_digits(n) - 1)))
+        # m = (n % (10 ** (count_digits(n) - 1)))
         print(n)
     return True
 
